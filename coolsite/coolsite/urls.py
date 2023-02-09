@@ -22,7 +22,10 @@ from honey.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('honey/', include('honey.urls')),
+    path('', include('honey.urls')),
 ]
 
-handler404 = pageNotFound()
+handler404 = not_found
+handler403 = closed_access
+handler400 = bad_request
+
