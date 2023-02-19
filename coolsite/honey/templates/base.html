@@ -14,7 +14,7 @@
 {% block mainmenu %}
 		<div class="header">
 			<ul id="mainmenu" class="mainmenu">
-			<li class="logo"><a href="{% url 'honey' %}"><div class="logo"></div></a></li>
+			<li class="logo"><a href="{% url 'home' %}"><div class="logo"></div></a></li>
 {% for m in menu %}
 	{% if not forloop.last %}
 			<li><a href="{% url m.url_name %}">{{m.title}}</a></li>
@@ -33,27 +33,19 @@
 <!-- Sidebar слева -->
 	<td valign="top" class="left-chapters">
 	<ul id="leftchapters">
-{% if cat_selected == 0 %}
-		<li class="selected">Все категории</li>
-{% else %}
-		<li><a href="{% url 'honey' %}">Все категории</a></li>
-{% endif %}
-
-{% for c in cats %}
-	{% if c.pk == cat_selected %}
-		<li class="selected">{{c.name}}</li>
-	{% else %}
-		<li><a href="{{ c.get_absolute_url }}">{{c.name}}</a></li>
-	{% endif %}
-{% endfor %}
-
+		<li class="selected">Барлық категориялар</li>
+		<li><a href="#">Dr.Ceuracle</a></li>
+		<li><a href="#">Ordinary</a></li>
+		<li><a href="#">Medi-peel</a></li>
 		<li class="share">
-		<p>Наш канал</p>
+		<p>Біздің сайт</p>
 		<a class="share-yt" href="https://www.youtube.com/channel/UClJzWfGWuGJL2t-3dYKcHTA/playlists" target="_blank" rel="nofollow"></a>
 		</li>
 	</ul>
 </td>
+<!-- Конец Sidebar'а -->
 <td valign="top" class="content">
+	<!-- Хлебные крошки -->
 	{% block breadcrumbs %}
 	{% endblock %}
 
@@ -69,7 +61,7 @@
 <!-- Footer -->
 <tr><td valign=top>
 	<div id="footer">
-		<p>&copy; 2021 Частичное или полное копирование информации с данного сайта для распространения на других ресурсах, в том числе и бумажных, строго запрещено.</p>
+		<p>&copy; 2021 Осы сайттан ақпаратты басқа ресурстарға, соның ішінде қағазға тарату үшін ішінара немесе толық көшіруге қатаң тыйым салынады.</p>
 	</div>
 </td></tr></table>
 <!-- Конец footer'а и страницы -->

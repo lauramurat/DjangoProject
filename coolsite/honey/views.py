@@ -1,11 +1,43 @@
 from django.core.exceptions import PermissionDenied, BadRequest
 from django.http import HttpResponse, HttpResponseNotFound, Http404, HttpResponseBadRequest, HttpResponseServerError
 from django.shortcuts import render, redirect
+from .models import *
+
+menu = [
+    {'title': "Біз жайлы", 'url_name':'about'},
+    {'title': "Контактілер", 'url_name': 'contact'},
+    {'title': "Блог", 'url_name': 'blog'},
+    {'title': "Кіру", 'url_name': 'login'},
+    {'title': "Тіркелу", 'url_name': 'register'}
+]
+
+
 
 def index(request):
-    return HttpResponse("Site Honey Skin")
+    posts = Product.objects.all()
+    context = {
+        'posts': posts,
+        'menu': menu,
+        'title':'Basty bet'
+    }
+    return render(request, 'honey/index.html', context=context)
 
+def about(request):
+    return render(request, 'honey/about.html', {'menu': menu, 'title': 'Біз жайлы'})
 
+def contact(request):
+    return HttpResponse("Keri bailanys")
+
+def show_post(request, post_id):
+    return HttpResponse(f"postty korsetu id = {post_id}")
+def blog(request):
+    return HttpResponse("Blog")
+
+def login(request):
+    return HttpResponse("Avtorisaviya")
+
+def register(request):
+    return HttpResponse("Tirkelu")
 
 
 def categories(request,category):
