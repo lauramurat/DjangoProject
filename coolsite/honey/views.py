@@ -41,8 +41,8 @@ def register(request):
 
 
 def categories(request,category):
-    if request.GET:
-        print(request.GET)
+    if request.POST:
+        print(request.POST)
     return HttpResponse(f"<h1>all categories =) </h1><p>{category}</p>")
 
 def archive(request,year):
